@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | ChainVault</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <!-- Logo -->
+            <div class="login-logo">
+                <span class="logo-mark">CV</span>
+                <span>ChainVault</span>
+            </div>
+
+            <!-- Heading -->
+            <h1>Create Account</h1>
+
+            <p class="login-subtitle">
+                Create your secure ChainVault account.
+            </p>
+
+            <!-- Registration Form -->
+            <form id="registerForm">
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        pattern="[A-Za-z ]+"
+                        required
+                    >
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+                    <small id="passwordError"></small>
+                </div>
+
+                <!-- Terms -->
+                <div class="login-options">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the Terms & Conditions
+                    </label>
+                </div>
+
+                <!-- Create Account Button -->
+                <button type="submit" class="login-submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <!-- Login Link -->
+            <p class="register-text">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+<script>
+    const registerForm = document.getElementById("registerForm");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const passwordError = document.getElementById("passwordError");
+
+    function checkPasswords() {
+        if (confirmPassword.value === "") {
+            passwordError.textContent = "";
+            return true;
+        }
+
+        if (password.value !== confirmPassword.value) {
+            passwordError.textContent = "Passwords do not match.";
+            passwordError.style.color = "red";
+            return false;
+        }
+
+        passwordError.textContent = "Passwords match.";
+        passwordError.style.color = "green";
+        return true;
+    }
+
+    password.addEventListener("input", checkPasswords);
+    confirmPassword.addEventListener("input", checkPasswords);
+
+    registerForm.addEventListener("submit", function (event) {
+        if (!checkPasswords()) {
+            event.preventDefault();
+            confirmPassword.focus();
+        }
+    });
+</script>
+
+</body>
+
+</html>
