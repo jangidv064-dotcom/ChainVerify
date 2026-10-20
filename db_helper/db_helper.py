@@ -48,7 +48,7 @@ DB_CONFIG = {
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="3012",
+    password="",
     database="chainverify_db"
 )
 
