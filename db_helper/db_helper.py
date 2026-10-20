@@ -48,7 +48,7 @@ DB_CONFIG = {
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="",
+    password="3012",
     database="chainverify_db"
 )
 
@@ -60,7 +60,7 @@ pool = mysql.connector.pooling.MySQLConnectionPool(
     pool_size=10,
     host="localhost",
     user="root",
-    password="3012",
+    password="",
     database="chainverify_db"
 )
 
