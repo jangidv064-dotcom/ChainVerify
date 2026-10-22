@@ -48,7 +48,7 @@ DB_CONFIG = {
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="",
+    password="3012",
     database="chainverify_db"
 )
 
@@ -60,7 +60,7 @@ pool = mysql.connector.pooling.MySQLConnectionPool(
     pool_size=10,
     host="localhost",
     user="root",
-    password="",
+    password="3012",
     database="chainverify_db"
 )
 
@@ -100,6 +100,7 @@ def get_db_connection():
     
     Returns:
         mysql.connector.connection.MySQLConnection: Pooled database connection.
+        
         
     Raises:
         mysql.connector.Error: If connection cannot be acquired.
